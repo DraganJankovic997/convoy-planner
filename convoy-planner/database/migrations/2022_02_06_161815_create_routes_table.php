@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReststopsTable extends Migration
+class CreateRoutesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateReststopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reststops', function (Blueprint $table) {
+        Schema::create('routes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('address');
-            $table->integer('work_from');
-            $table->integer('work_to');
-            $table->boolean('work_sunday');
-            $table->boolean('work_saturday');
+            $table->unsignedBigInteger('dispatcher_id');
+            $table->foreign('dispatcher_id')->references('id')->on('dispatchers')->onDelete('cascade')->onUpdate('cascade');
+            $table->date('from_date');
+            $table->date('to_date');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateReststopsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reststops');
+        Schema::dropIfExists('routes');
     }
 }

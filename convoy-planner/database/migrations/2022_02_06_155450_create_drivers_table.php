@@ -15,13 +15,11 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('licence_number')->unique();
             $table->date('hired_from');
             $table->unsignedBigInteger('dispatcher_id');
-            $table->foreign('dispatcher_id')
-                ->references('id')->on('dispatchers')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreign('dispatcher_id')->references('id')->on('dispatchers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
