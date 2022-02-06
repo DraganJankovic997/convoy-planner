@@ -15,6 +15,7 @@ class CreateReststopsTable extends Migration
     {
         Schema::create('reststops', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('address');
             $table->integer('work_from');
             $table->integer('work_to');
