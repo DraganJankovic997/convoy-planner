@@ -20,7 +20,12 @@ class CreateStopsTable extends Migration
             $table->date('arrival_date');
             $table->date('leave_date');
             $table->boolean('is_overnight');
-            $table->enum('status', ['PENDING', 'OPEN', 'CLOSED', 'CANCELLED']);
+            $table->enum('status', [
+                'PENDING',
+                'OPEN',
+                'CLOSED',
+                'CANCELLED',
+            ]);
             $table->timestamps();
 
             $table->foreign('route_id')->references('id')->on('routes')->onDelete('cascade')->onUpdate('cascade');
