@@ -17,10 +17,7 @@ class CreateTownsTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('country_id');
-            $table->foreign('country_id')
-                ->references('id')->on('countries')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

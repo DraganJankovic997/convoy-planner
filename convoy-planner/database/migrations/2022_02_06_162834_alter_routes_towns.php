@@ -17,14 +17,8 @@ class AlterRoutesTowns extends Migration
             $table->unsignedBigInteger('town_from');
             $table->unsignedBigInteger('town_to');
 
-            $table->foreign('town_from')
-                ->references('id')->on('towns')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->foreign('town_to')
-                ->references('id')->on('towns')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreign('town_from')->references('id')->on('towns')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('town_to')->references('id')->on('towns')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
