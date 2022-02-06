@@ -16,6 +16,7 @@ class CreateDriversTable extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->string('licence_number')->unique();
+            $table->date('hired_from');
             $table->foreign('dispatcher_id')
                 ->references('id')->on('dispatchers')
                 ->onDelete('cascade')
