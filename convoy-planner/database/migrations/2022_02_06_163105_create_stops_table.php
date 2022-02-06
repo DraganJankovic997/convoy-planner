@@ -20,7 +20,7 @@ class CreateStopsTable extends Migration
             $table->date('arrival_date');
             $table->date('leave_date');
             $table->boolean('is_overnight');
-            $table->enum('status', ['pending', 'open', 'closed', 'cancelled']);
+            $table->enum('status', ['PENDING', 'OPEN', 'CLOSED', 'CANCELLED']);
             $table->timestamps();
         });
     }
