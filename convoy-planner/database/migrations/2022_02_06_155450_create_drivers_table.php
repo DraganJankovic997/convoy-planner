@@ -17,6 +17,7 @@ class CreateDriversTable extends Migration
             $table->id();
             $table->string('licence_number')->unique();
             $table->date('hired_from');
+            $table->unsignedBigInteger('dispatcher_id');
             $table->foreign('dispatcher_id')
                 ->references('id')->on('dispatchers')
                 ->onDelete('cascade')
