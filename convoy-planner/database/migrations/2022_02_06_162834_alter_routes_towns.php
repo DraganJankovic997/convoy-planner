@@ -29,6 +29,9 @@ class AlterRoutesTowns extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('routes', function(Blueprint $table) {
+            $table->dropForeign(['town_from']);
+            $table->dropForeign(['town_to']);
+        });
     }
 }
