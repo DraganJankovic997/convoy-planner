@@ -25,7 +25,7 @@ class RegisterDispatcherRequest extends FormRequest
     public function rules()
     {
         return [
-            'fist_name' => ['required', 'string'],
+            'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'email' => ['required', 'email', 'unique:users'],
             'phone' => ['required', 'string', 'unique:users', 'min:6'],

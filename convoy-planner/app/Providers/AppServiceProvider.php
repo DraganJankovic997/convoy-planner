@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Contracts\UserContract', 'App\Services\UserService');
+        $this->app->bind('App\Contracts\DispatcherContract', 'App\Services\DispatcherService');
     }
 
     /**
