@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterDispatcherController;
+use App\Http\Controllers\Auth\RegisterDriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ Route::group(
 );
 
 Route::post('auth/register/dispatcher', [ RegisterDispatcherController::class, 'register' ]);
+Route::post('auth/register/driver', [ RegisterDriverController::class, 'register' ]);

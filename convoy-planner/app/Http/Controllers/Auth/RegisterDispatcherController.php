@@ -33,7 +33,11 @@ class RegisterDispatcherController extends Controller
 
         return $this->dispatcherService->create(array_merge(
             [ 'user_id' => $user['id'] ],
-            Arr::only($clean, ['name', 'registration_number', 'address']),
+            Arr::only($clean, [
+                'name',
+                'registration_number',
+                'address'
+            ]),
         ));
     }
 }
