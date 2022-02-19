@@ -18,7 +18,9 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'phone',
         'email',
         'password',
     ];
@@ -41,6 +43,11 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function dispatcher()
+    {
+        $this->hasOne(Dispatcher::class);
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
