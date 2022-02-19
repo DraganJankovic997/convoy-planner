@@ -54,6 +54,11 @@ class User extends Authenticatable implements JWTSubject
         $this->hasOne(Driver::class);
     }
 
+    public function restStop()
+    {
+        $this->hasOne(RestStop::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

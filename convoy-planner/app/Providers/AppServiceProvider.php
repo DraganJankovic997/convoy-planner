@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\UserContract', 'App\Services\UserService');
         $this->app->bind('App\Contracts\DispatcherContract', 'App\Services\DispatcherService');
         $this->app->bind('App\Contracts\DriverContract', 'App\Services\DriverService');
+        $this->app->bind('App\Contracts\RestStopContract', 'App\Services\RestStopService');
     }
 
     /**
