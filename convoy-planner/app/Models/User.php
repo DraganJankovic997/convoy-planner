@@ -49,6 +49,11 @@ class User extends Authenticatable implements JWTSubject
         $this->hasOne(Dispatcher::class);
     }
 
+    public function driver()
+    {
+        $this->hasOne(Driver::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
