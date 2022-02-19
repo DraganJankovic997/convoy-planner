@@ -23,14 +23,17 @@ class RegisterDispatcherController extends Controller
     {
         $clean = $request->validated();
 
-        $user = Arr::only($clean, ['first_name', 'last_name', 'email', 'phone', 'password']);
+        $user = $this->userService->create(Arr::only($clean, [
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'password'
+        ]));
 
-        $user = $this->userService->create($user);
-
-        $dispatcher = Arr::only($clean, ['name', 'registration_number', 'address']);
-
-        $dispatcher['user_id'] = $user['id'];
-
-        return $this->dispatcherService->create($dispatcher);
+        return $this->dispatcherService->create(array_merge(
+            [ 'user_id' => $user['id'] ],
+            Arr::only($clean, ['name', 'registration_number', 'address']),
+        ));
     }
 }

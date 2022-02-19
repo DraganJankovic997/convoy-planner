@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Contracts\DispatcherContract;
 use App\Models\Dispatcher;
+use App\Models\User;
 
 class DispatcherService implements DispatcherContract
 {
