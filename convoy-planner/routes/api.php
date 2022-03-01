@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterDispatcherController;
 use App\Http\Controllers\Auth\RegisterDriverController;
 use App\Http\Controllers\Auth\RegisterRestStopController;
+use App\Http\Controllers\RouteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,6 @@ Route::group(
 Route::post('auth/register/dispatcher', [ RegisterDispatcherController::class, 'register' ]);
 Route::post('auth/register/driver', [ RegisterDriverController::class, 'register' ]);
 Route::post('auth/register/reststop', [ RegisterRestStopController::class, 'register' ]);
+
+
+Route::post('route', [RouteController::class, 'createRoute']);
