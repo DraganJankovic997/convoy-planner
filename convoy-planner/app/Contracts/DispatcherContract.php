@@ -5,5 +5,5 @@ namespace App\Contracts;
 interface DispatcherContract
 {
     public function create($dispatcher);
-    public function getById($id);
+    public function getByUserId($id);
 }

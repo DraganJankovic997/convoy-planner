@@ -21,20 +21,20 @@ class RouteController extends Controller
 
     public function createRoute(Request $request)
     {
-        if (!$this->dispatcherService->getById(Auth::id())) {
+        if (!$dispatcher = $this->dispatcherService->getByUserId(Auth::id())) {
             return response('You are unable to create routes!', 403);
         }
 
         $clean = $request->validate([
             'from_date' => ['required', 'date_format:d-m-Y', 'after:today'],
             'to_date' => ['required', 'date_format:d-m-Y', 'after:today'],
-            'town_from' => ['required', 'exists:town'],
-            'town_to' => ['required', 'exists:town'],
+            'town_from' => ['required', 'exists:towns,id'],
+            'town_to' => ['required', 'exists:towns,id'],
         ]);
 
         return $this->routeService->create(array_merge(
             $clean,
-            ['dispatcher_id' => Auth::id()]
+            ['dispatcher_id' => $dispatcher['id']]
         ));
     }
 }

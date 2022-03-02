@@ -21,4 +21,12 @@ class Route extends Model
         'town_from',
         'town_to',
     ];
+
+    public function townTo()
+    {
+    }
+
+    public function townFrom()
+    {
+    }
 }

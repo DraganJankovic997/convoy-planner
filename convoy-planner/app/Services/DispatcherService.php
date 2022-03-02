@@ -12,8 +12,8 @@ class DispatcherService implements DispatcherContract
         return Dispatcher::create($dispatcher);
     }
 
-    public function getById($id)
+    public function getByUserId($id)
     {
-        return Dispatcher::find($id);
+        return Dispatcher::where('user_id', $id)->first();
     }
 }

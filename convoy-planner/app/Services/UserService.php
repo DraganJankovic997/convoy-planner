@@ -9,6 +9,7 @@ class UserService implements UserContract
 {
     public function create($user)
     {
+        $user['password'] = bcrypt($user['password']);
         return User::create($user);
     }
 }
